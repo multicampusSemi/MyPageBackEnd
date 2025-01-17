@@ -5,32 +5,34 @@
 <head>
     <title>주문 내역</title>
     <link rel="stylesheet" href="/pje_css/order_history.css">
-    <script src="pje_js/order_history.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/pje_js/order_history.js"></script>
 </head>
 <body>
-    <h1>주문 내역</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>주문 번호</th>
-                <th>주문 날짜</th>
-                <th>상품 이름</th>
-                <th>상태</th>
-                <th>총 금액</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="history" items="${orderHistory}">
+    <div class="sidebar">
+        <ul>
+            <li><a href="/recent-orders">최근 주문 상품</a></li>
+            <li><a href="/orderHistory" class="active">주문 내역</a></li>
+            <li><a href="/member-update">회원 정보 수정</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>주문 내역</h1>
+        <table id="orderTable">
+            <thead>
                 <tr>
-					<td>${history.id}</td>
-					<td>${history.userId}</td>
-					<td>${history.totalPrice}</td>
-					<td>${history.status}</td>
-					<td>${history.createdAt}</td>
-					<td>${history.updatedAt}</td>
+                    <th>주문 번호</th>
+                    <th>상품 이름</th>
+                    <th>수량</th>
+                    <th>가격</th>
+                    <th>상태</th>
                 </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <!-- JavaScript에서 데이터 추가 -->
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

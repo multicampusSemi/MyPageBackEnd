@@ -1,20 +1,27 @@
 package com.project.service;
 
-import com.project.model.PjeOrder;
 import com.project.mapper.PjeSemiMapper;
+import com.project.model.PjeRecent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Service
 public class RecentOrderService {
-    private final PjeSemiMapper mapper;
 
-    public RecentOrderService(PjeSemiMapper mapper) {
-        this.mapper = mapper;
+    @Autowired
+    private PjeSemiMapper mapper;
+
+    public List<PjeRecent> getRecentOrders() {
+        return mapper.getRecentOrders();
     }
-
-    public List<PjeOrder> getRecentOrdersList() {
-        return mapper.getRecentOrdersList();
+    
+    public List<PjeRecent> getRecentOrdersFromAPI() {
+        String apiUrl = "https://external-api.com/orders"; // 외부 API URL
+        RestTemplate restTemplate = new RestTemplate();
+        PjeRecent[] recentOrders = restTemplate.getForObject(apiUrl, PjeRecent[].class);
+        return List.of(recentOrders);
     }
 }

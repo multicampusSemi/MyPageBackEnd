@@ -1,4 +1,4 @@
-/* /pje_css/order_history.css */
+/* 공통 스타일 */
 body {
     font-family: "Hahmlet", serif;
     background-color: #f9f9f9;
@@ -7,24 +7,69 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: rgb(60, 60, 60); /* 기본 텍스트 색상 */
 }
 
-header {
+/* 사이드바 스타일 */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+.sidebar ul li a.active {
+    background-color: #444;
+    font-weight: bold;
+}
+
+/* 메인 콘텐츠 */
+.main-content {
+    margin-left: 220px; /* 사이드바 너비 */
+    padding: 20px;
+    width: calc(100% - 240px); /* 여백 포함한 너비 조정 */
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+h1 {
     font-size: 30px;
     color: rgb(60, 60, 95);
     margin: 50px 0;
     text-align: center;
 }
 
-main {
-    width: 90%;
-    max-width: 1500px;
-    margin: 100px 0;
-    display: flex;
-    justify-content: center;
-}
-
-#orderTable {
+table {
     width: 100%;
     border-collapse: collapse;
     background-color: rgba(177, 176, 176, 0.205);
@@ -32,31 +77,36 @@ main {
     box-shadow: 0 4px 8px rgba(0, 4, 0, 0.5);
     overflow: hidden;
     text-align: center;
+    margin-top: 20px;
 }
 
-#orderTable th, #orderTable td {
-    padding: 15px;
-    font-size: 18px;
-}
-
-#orderTable th {
+thead {
     background-color: rgb(60, 60, 95);
     color: #fff;
 }
 
-#orderTable tr:nth-child(even) {
+thead th {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
     background-color: rgba(200, 200, 200, 0.5);
 }
 
-#orderTable tr:hover {
+tbody tr:hover {
     background-color: rgba(177, 176, 176, 0.5);
     cursor: pointer;
 }
 
-#orderTable td {
+tbody td {
+    padding: 15px;
+    font-size: 18px;
     color: rgb(60, 60, 60);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.5); /* 셀 구분선 */
 }
 
-#orderTable td:first-child {
+tbody td:first-child {
     font-weight: bold;
 }
