@@ -1,0 +1,66 @@
+body {
+    font-family: "Hahmlet", serif;
+    background-color: #f9f9f9;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(60, 60, 95);
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: rgb(60, 60, 95);
+    color: white;
+}
+
+td {
+    font-size: 16px;
+}
+
+.return-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: rgb(60, 60, 95);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.return-button:hover {
+    background-color: rgb(80, 80, 120);
+}
