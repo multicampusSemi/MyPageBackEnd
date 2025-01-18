@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgb(60, 60, 60); /* 기본 텍스트 색상 */
+    color: rgb(60, 60, 60);
 }
 
 /* 사이드바 스타일 */
@@ -54,10 +54,10 @@ body {
 
 /* 메인 콘텐츠 */
 .main-content {
-    margin-left: 220px; /* 사이드바 너비 */
+    margin-left: 220px;
     padding: 20px;
-    width: calc(100% - 240px); /* 여백 포함한 너비 조정 */
-    max-width: 800px;
+    width: calc(100% - 240px);
+    max-width: 100%;
     text-align: center;
     margin: 0 auto;
 }
@@ -89,6 +89,7 @@ thead th {
     padding: 15px;
     font-size: 18px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 tbody tr:nth-child(even) {
@@ -101,18 +102,20 @@ tbody tr:hover {
 }
 
 tbody td {
-    padding: 15px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 16px;
     color: rgb(60, 60, 60);
-    border-bottom: 1px solid rgba(200, 200, 200, 0.5); /* 셀 구분선 */
+    border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+    white-space: nowrap;
+    word-break: break-word;
 }
 
-.total-label {
+tfoot td {
     font-weight: bold;
+    background-color: #f9f9f9;
     text-align: right;
-    padding-right: 15px;
-    background-color: rgba(240, 240, 240, 0.5);
 }
+
 /* 총 가격 스타일 */
 .total-price {
     font-weight: bold;
@@ -120,11 +123,7 @@ tbody td {
     vertical-align: middle;
     display: table-cell;
     height: 100%;
-    width: 100%;
-    padding: 0;
+    width: auto;
+    padding: 10px;
     box-sizing: border-box;
-    border-top: 2px solid #444; /* 총 가격 상단 구분선 */
-    font-size: 18px; /* 폰트 크기 조정 */
 }
-
-

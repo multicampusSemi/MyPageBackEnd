@@ -5,6 +5,46 @@
 <head>
     <title>최근 주문 상품</title>
     <link rel="stylesheet" href="/pje_css/recent_orders.css">
+    <style>
+        .product-img {
+            width: 250px;
+            height: 350px;
+            object-fit: cover; /* 이미지가 비율을 유지하며 셀 안에 맞게 조정 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(177, 176, 176, 0.205);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 4, 0, 0.5);
+            overflow: hidden;
+            text-align: center;
+            margin-top: 20px;
+        }
+        thead th {
+            background-color: rgb(60, 60, 95);
+            color: #fff;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        tbody td {
+            padding: 15px;
+            font-size: 18px;
+            color: rgb(60, 60, 60);
+            border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+            word-break: break-word;
+        }
+        .total-price {
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px;
+            border-top: 2px solid #444;
+            font-size: 18px;
+            background-color: rgba(240, 240, 240, 0.5);
+        }
+    </style>
 </head>
 <body>
     <div class="sidebar">
