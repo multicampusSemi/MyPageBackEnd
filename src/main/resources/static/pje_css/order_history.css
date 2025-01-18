@@ -70,7 +70,8 @@ h1 {
 }
 
 table {
-    width: 100%;
+    width: auto; /* 자동 크기 조정 */
+    max-width: 100%; /* 최대 너비 제한 */
     border-collapse: collapse;
     background-color: rgba(177, 176, 176, 0.205);
     border-radius: 15px;
@@ -89,6 +90,7 @@ thead th {
     padding: 15px;
     font-size: 18px;
     font-weight: bold;
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 }
 
 tbody tr:nth-child(even) {
@@ -101,12 +103,28 @@ tbody tr:hover {
 }
 
 tbody td {
-    padding: 15px;
-    font-size: 18px;
+    padding: 10px; /* 여백 축소 */
+    font-size: 16px; /* 텍스트 크기 축소 */
     color: rgb(60, 60, 60);
     border-bottom: 1px solid rgba(200, 200, 200, 0.5); /* 셀 구분선 */
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    word-break: break-word; /* 긴 단어 줄바꿈 */
 }
 
-tbody td:first-child {
+tfoot td {
     font-weight: bold;
+    background-color: #f9f9f9;
+    text-align: right;
+}
+
+/* 총 가격 스타일 */
+.total-price {
+    font-weight: bold; /* 글씨 두껍게 */
+    text-align: center; /* 텍스트 가로 가운데 정렬 */
+    vertical-align: middle; /* 텍스트 세로 가운데 정렬 */
+    display: table-cell; /* 테이블 셀로 설정 */
+    height: 100%; /* 셀 높이에 맞춤 */
+    width: auto; /* 내용에 따라 자동 크기 조정 */
+    padding: 10px; /* 적절한 여백 설정 */
+    box-sizing: border-box; /* 패딩 포함하여 크기 계산 */
 }

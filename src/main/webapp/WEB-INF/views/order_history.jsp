@@ -27,22 +27,23 @@
                     <th>수량</th>
                     <th>가격</th>
                     <th>상태</th>
+                    <th>총 가격</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="order" items="${orderHistory}">
+                <c:forEach var="order" items="${orderHistory}" varStatus="status">
                     <tr>
                         <td>${order.id}</td>
                         <td>${order.productName}</td>
                         <td>${order.quantity}</td>
-                        <td>${order.price}</td>
+                        <td>${order.price}원</td>
                         <td>${order.status}</td>
+                        <!-- 총 가격 칸을 첫 번째 상품의 행에만 출력 -->
+                        <c:if test="${status.first}">
+                            <td class="total-price" rowspan="${orderHistory.size()}">${totalPrice}원</td>
+                        </c:if>
                     </tr>
                 </c:forEach>
-                <tr>
-                    <td colspan="4" style="text-align:right; font-weight:bold;">총 가격</td>
-                    <td>${totalPrice}</td>
-                </tr>
             </tbody>
         </table>
     </div>

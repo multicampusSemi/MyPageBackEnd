@@ -23,25 +23,25 @@
 </select>
 
     <!-- 최근 주문 조회 -->
-    <select id="getRecentOrders" resultType="com.project.model.PjeRecent">
-        SELECT 
-            p.photo AS photo, <!-- 상품 이미지를 나타내는 필드 (Products 테이블의 photo 컬럼) -->
-            p.productName AS productName, <!-- 상품 이름을 나타내는 필드 (Products 테이블의 productName 컬럼) -->
-            p.productPrice AS price, <!-- 상품 가격을 나타내는 필드 (Products 테이블의 productPrice 컬럼) -->
-            o.created_at AS orderDate, <!-- 주문 날짜를 나타내는 필드 (Orders 테이블의 created_at 컬럼) -->
-            oi.quantity AS quantity <!-- 주문된 수량을 나타내는 필드 (OrderItem 테이블의 quantity 컬럼) -->
-        FROM 
-            Orders o <!-- 주문 데이터를 담고 있는 테이블 -->
-        JOIN 
-            OrderItem oi ON o.id = oi.order_id <!-- Orders 테이블과 OrderItem 테이블을 order_id를 기준으로 조인 -->
-        JOIN 
-            products p ON oi.product_id = p.productId <!-- OrderItem 테이블과 Products 테이블을 productId를 기준으로 조인 -->
-        WHERE 
-            o.status = 'COMPLETED' <!-- 주문 상태가 'COMPLETED'(완료된)인 주문만 필터링 -->
-        ORDER BY 
-            o.created_at DESC <!-- 주문 날짜(created_at)를 기준으로 내림차순 정렬 -->
-        LIMIT 3; <!-- 가장 최근 3개의 데이터를 제한하여 조회 -->
-    </select>
+<select id="getRecentOrders" resultType="com.project.model.PjeRecent">
+    SELECT 
+        p.photo AS photo, 
+        p.productName AS productName,
+        p.productPrice AS price, 
+        oi.quantity AS quantity, 
+        o.created_at AS orderDate
+    FROM 
+        Orders o
+    JOIN 
+        OrderItem oi ON o.id = oi.order_id
+    JOIN 
+        Products p ON oi.product_id = p.productId
+    WHERE 
+        o.status = 'COMPLETED'
+    ORDER BY 
+        o.created_at DESC
+    LIMIT 3;
+</select>
 
     <!-- 특정 주문 상세 정보 조회 -->
     <select id="getOrderDetails" resultType="com.project.model.PjeOrderDetails">

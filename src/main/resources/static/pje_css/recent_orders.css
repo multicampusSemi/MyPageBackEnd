@@ -107,6 +107,24 @@ tbody td {
     border-bottom: 1px solid rgba(200, 200, 200, 0.5); /* 셀 구분선 */
 }
 
-tbody td:first-child {
+.total-label {
     font-weight: bold;
+    text-align: right;
+    padding-right: 15px;
+    background-color: rgba(240, 240, 240, 0.5);
 }
+/* 총 가격 스타일 */
+.total-price {
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    border-top: 2px solid #444; /* 총 가격 상단 구분선 */
+    font-size: 18px; /* 폰트 크기 조정 */
+}
+
+
