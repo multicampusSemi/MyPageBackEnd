@@ -30,7 +30,19 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- JavaScript에서 데이터 추가 -->
+                <c:forEach var="order" items="${orderHistory}">
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.productName}</td>
+                        <td>${order.quantity}</td>
+                        <td>${order.price}</td>
+                        <td>${order.status}</td>
+                    </tr>
+                </c:forEach>
+                <tr>
+                    <td colspan="4" style="text-align:right; font-weight:bold;">총 가격</td>
+                    <td>${totalPrice}</td>
+                </tr>
             </tbody>
         </table>
     </div>

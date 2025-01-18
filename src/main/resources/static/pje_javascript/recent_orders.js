@@ -1,10 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
     // 사이드바 활성 링크 설정
     const currentPath = window.location.pathname;
-    const links = document.querySelectorAll(".sidebar ul li a");
-    links.forEach(link => {
-        if (link.getAttribute("href") === currentPath) {
-            link.classList.add("active");
+    $(".sidebar ul li a").each(function () {
+        if ($(this).attr("href") === currentPath) {
+            $(this).addClass("active");
         }
     });
 
@@ -17,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     // 테이블 렌더링
-    const table = document.getElementById("recentOrdersTable");
+    const $table = $("#recentOrdersTable");
     let tableContent = "";
-    orders.forEach((order, index) => {
+    $.each(orders, function (index, order) {
         tableContent += `
             <tr data-index="${index}">
                 <td>${order.productName}</td>
@@ -38,27 +37,23 @@ document.addEventListener("DOMContentLoaded", function () {
             </tr>
         `;
     });
-    table.innerHTML = tableContent;
+    $table.html(tableContent);
 
     // 취소 버튼 클릭 이벤트
-    document.querySelectorAll(".cancel-button").forEach(button => {
-        button.addEventListener("click", function () {
-            const orderIndex = this.getAttribute("data-id");
-            const orderName = orders[orderIndex].productName;
-            window.location.href = `../pje_html/cancel_order.html?orderId=${orderIndex}`;
-        });
+    $(".cancel-button").on("click", function () {
+        const orderIndex = $(this).data("id");
+        const orderName = orders[orderIndex].productName;
+        window.location.href = `../pje_html/cancel_order.html?orderId=${orderIndex}`;
     });
 
     // 색상 변경 이벤트
-    document.querySelectorAll(".color-select").forEach(select => {
-        select.addEventListener("change", function () {
-            const orderIndex = this.getAttribute("data-index");
-            const selectedColor = this.value;
+    $(".color-select").on("change", function () {
+        const orderIndex = $(this).data("index");
+        const selectedColor = $(this).val();
 
-            // 주문 배열 업데이트
-            orders[orderIndex].color = selectedColor;
+        // 주문 배열 업데이트
+        orders[orderIndex].color = selectedColor;
 
-            alert(`${orders[orderIndex].productName}의 색상이 ${selectedColor}(으)로 변경되었습니다.`);
-        });
+        alert(`${orders[orderIndex].productName}의 색상이 ${selectedColor}(으)로 변경되었습니다.`);
     });
 });

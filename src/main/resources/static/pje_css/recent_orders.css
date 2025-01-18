@@ -1,4 +1,4 @@
-/* 최근 주문 상품 공통 스타일 */
+/* 공통 스타일 */
 body {
     font-family: "Hahmlet", serif;
     background-color: #f9f9f9;
@@ -56,26 +56,28 @@ body {
 .main-content {
     margin-left: 220px; /* 사이드바 너비 */
     padding: 20px;
-    max-width: 1200px; /* 본문의 최대 너비 */
-    text-align: center; /* 본문 내용 중앙 정렬 */
+    width: calc(100% - 240px); /* 여백 포함한 너비 조정 */
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 h1 {
     font-size: 30px;
     color: rgb(60, 60, 95);
     margin: 50px 0;
+    text-align: center;
 }
 
 table {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto; /* 테이블을 중앙에 위치 */
     border-collapse: collapse;
     background-color: rgba(177, 176, 176, 0.205);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 4, 0, 0.5);
     overflow: hidden;
     text-align: center;
+    margin-top: 20px;
 }
 
 thead {
@@ -107,11 +109,4 @@ tbody td {
 
 tbody td:first-child {
     font-weight: bold;
-}
-
-.product-card img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 10px;
 }
