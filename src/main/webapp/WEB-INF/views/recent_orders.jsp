@@ -9,7 +9,7 @@
         .product-img {
             width: 250px;
             height: 350px;
-            object-fit: cover; /* 이미지가 비율을 유지하며 셀 안에 맞게 조정 */
+            object-fit: cover;
         }
         table {
             width: 100%;
@@ -17,7 +17,6 @@
             background-color: rgba(177, 176, 176, 0.205);
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 4, 0, 0.5);
-            overflow: hidden;
             text-align: center;
             margin-top: 20px;
         }
@@ -57,6 +56,11 @@
 
     <div class="main-content">
         <h1>최근 주문 상품</h1>
+
+        <!-- 세션에서 가져온 사용자 정보 출력 -->
+        <p>세션에서 가져온 사용자 ID: <%= session.getAttribute("userId") %></p>
+        <p>세션에서 가져온 사용자 이름: <%= session.getAttribute("username") %></p>
+
         <table>
             <thead>
                 <tr>

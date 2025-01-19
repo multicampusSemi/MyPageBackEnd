@@ -17,4 +17,9 @@ public interface PjeSemiMapper {
 
     // 특정 주문 상세 정보 조회
     List<PjeOrderDetails> getOrderDetails(@Param("orderId") int orderId);
+    // 특정 사용자 모든 주문 조회
+    List<PjeOrder> findAllByUserId(@Param("userId") int userId);
+
+    // 특정 사용자 최근 주문 조회
+    List<PjeRecent> getRecentOrdersByUserId(@Param("userId") int userId);
 }

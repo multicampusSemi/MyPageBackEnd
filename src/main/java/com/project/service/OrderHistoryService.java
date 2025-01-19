@@ -16,4 +16,8 @@ public class OrderHistoryService {
     public List<PjeOrder> getOrderHistoryList() {
         return pjeSemiMapper.findAll();
     }
+    public List<PjeOrder> getOrderHistoryList(int userId) {
+        return pjeSemiMapper.findAllByUserId(userId);
+    }
+
 }

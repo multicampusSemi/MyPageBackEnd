@@ -19,6 +19,11 @@
 
     <div class="main-content">
         <h1>주문 내역</h1>
+
+        <!-- 세션에서 가져온 사용자 정보 출력 -->
+        <p>세션에서 가져온 사용자 ID: <%= session.getAttribute("userId") %></p>
+        <p>세션에서 가져온 사용자 이름: <%= session.getAttribute("username") %></p>
+
         <table id="orderTable">
             <thead>
                 <tr>
@@ -38,7 +43,6 @@
                         <td>${order.quantity}</td>
                         <td>${order.price}원</td>
                         <td>${order.status}</td>
-                        <!-- 총 가격 칸을 첫 번째 상품의 행에만 출력 -->
                         <c:if test="${status.first}">
                             <td class="total-price" rowspan="${orderHistory.size()}">${totalPrice}원</td>
                         </c:if>

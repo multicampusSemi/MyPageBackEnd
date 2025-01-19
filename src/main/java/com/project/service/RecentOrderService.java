@@ -16,4 +16,7 @@ public class RecentOrderService {
     public List<PjeRecent> getRecentOrders() {
         return mapper.getRecentOrders();
     }
+    public List<PjeRecent> getRecentOrders(int userId) {
+        return mapper.getRecentOrdersByUserId(userId);
+    }
 }
