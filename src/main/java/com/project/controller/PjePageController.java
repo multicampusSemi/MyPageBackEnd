@@ -19,6 +19,22 @@ public class PjePageController {
         this.historyService = historyService;
     }
 
+    @GetMapping("/")
+    public String mainPage(HttpSession session, Model model) {
+        Integer userId = (Integer) session.getAttribute("userId");  // 세션에서 사용자 ID 가져오기
+        if (userId == null) {
+            return "redirect:/login";  // 로그인하지 않은 사용자는 로그인 페이지로 이동
+        }
+
+        List<PjeOrder> orders = historyService.getOrderHistoryList(userId);  // 사용자 ID로 주문 내역 조회
+        int totalPrice = orders.stream()
+                               .mapToInt(order -> order.getPrice() * order.getQuantity())
+                               .sum();
+        model.addAttribute("orderHistory", orders);
+        model.addAttribute("totalPrice", totalPrice);
+        return "order_history";  // 주문내역 페이지를 메인 페이지로 설정
+    }
+
     @GetMapping("/orderHistory")
     public String orderHistory(HttpSession session, Model model) {
         Integer userId = (Integer) session.getAttribute("userId");  // 세션에서 사용자 ID 가져오기
@@ -32,7 +48,6 @@ public class PjePageController {
                                .sum();
         model.addAttribute("orderHistory", orders);
         model.addAttribute("totalPrice", totalPrice);
-        return "order_history";
+        return "order_history";  // 기존 주문내역 페이지 유지
     }
-
 }
